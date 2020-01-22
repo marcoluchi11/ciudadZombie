@@ -110,27 +110,32 @@ Juego.update = function() {
 Juego.capturarMovimiento = function(tecla) {
   var movX = 0;
   var movY = 0;
+  var spriteNuevo;
   var velocidad = this.jugador.velocidad;
 
   // El movimiento esta determinado por la velocidad del jugador
   if (tecla == 'izq') {
     movX = -velocidad;
+    spriteNuevo = 'imagenes/auto_rojo_izquierda.png';
   }
   if (tecla == 'arriba') {
     movY = -velocidad;
+    spriteNuevo = 'imagenes/auto_rojo_arriba.png';
   }
   if (tecla == 'der') {
     movX = velocidad;
+    spriteNuevo = 'imagenes/auto_rojo_derecha.png';
   }
   if (tecla == 'abajo') {
     movY = velocidad;
+    spriteNuevo = 'imagenes/auto_rojo_abajo.png';
   }
 
   // Si se puede mover hacia esa posicion hay que hacer efectivo este movimiento
   if (this.chequearColisiones(movX + this.jugador.x, movY + this.jugador.y)) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
-      Jugador.mover(movX,movY);
+      Jugador.mover(movX,movY,spriteNuevo);
     /* COMPLETAR */
   }
 };
