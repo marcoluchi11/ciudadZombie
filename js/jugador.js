@@ -12,7 +12,12 @@
   alto: 30,
   velocidad: 10,
   vidas: 5,
-  mover: function(){},
+  mover: function(x,y){
+          console.log(this.x);
+          this.x += x;
+          this.y += y;
+    
+  },
   perderVidas: function(){
 
     vidas--;
