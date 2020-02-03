@@ -50,10 +50,10 @@ var Juego = {
                   new ZombieCaminante('imagenes/zombie1.png',123,577,10,10,5,150),
                   new ZombieCaminante('imagenes/zombie3.png',100,489,10,10,5,150),
                   new ZombieCaminante('imagenes/zombie2.png',780,443,10,10,5,150),
-                  new ZombieCaminante('imagenes/zombie1.png',279,480,10,10,5,150),
+                  new ZombieCaminante('imagenes/zombie1.png',940,480,10,10,5,150),
                   new ZombieCaminante('imagenes/zombie1.png',240,156,10,10,5,150),
-                  new ZombieConductor('imagenes/tren_horizontal.png',400,322,90,30,10,15,'h'),
-                  new ZombieConductor('imagenes/tren_vertical.png',644,0,30,90,10,15,'v'),
+                  new ZombieConductor('imagenes/tren_horizontal.png',250,322,90,30,10,15,'h'),
+                  new ZombieConductor('imagenes/tren_vertical.png',644,150,30,90,10,15,'v'),
                   new ZombieConductor('imagenes/tren_vertical.png',678,0,30,90,10,15,'v'),
   ]
 
@@ -191,7 +191,9 @@ un recorrido por los enemigos para dibujarlos en pantalla ahora habra que hacer
 una funcionalidad similar pero para que se muevan.*/
 Juego.moverEnemigos = function() {
   /* COMPLETAR */
-
+      this.enemigos.forEach(function(enemigo){
+          enemigo.mover();
+      });
 };
 
 /* Recorre los enemigos para ver cual esta colisionando con el jugador
