@@ -20,14 +20,14 @@ ZombieConductor.prototype.constructor = ZombieConductor;
 ZombieConductor.prototype.mover = function(){
 
   if(this.direccion === 'v'){
-      this.y++;
+      this.y+=20;
       if(this.y >= 577){
         this.y = 0;
       }
   }
   if(this.direccion === 'h'){
 
-        this.x++;
+        this.x+=20;
         if(this.x >= 961){
 
           this.x = 0;
@@ -35,7 +35,7 @@ ZombieConductor.prototype.mover = function(){
   }
 }
 
-ZombieConductor.prototype.atacar = function(){
+ZombieConductor.prototype.atacar = function(jugador){
 
   jugador.perderVidas(5);
 }

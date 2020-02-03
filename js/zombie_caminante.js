@@ -38,7 +38,7 @@ ZombieCaminante.prototype.mover = function() {
   }
 }
 
-ZombieCaminante.prototype.atacar = function(){
+ZombieCaminante.prototype.atacar = function(jugador){
 
 
   jugador.perderVidas(3);
