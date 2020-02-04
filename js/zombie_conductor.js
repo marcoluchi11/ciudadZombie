@@ -20,14 +20,14 @@ ZombieConductor.prototype.constructor = ZombieConductor;
 ZombieConductor.prototype.mover = function(){
 
   if(this.direccion === 'v'){
-      this.y+=20;
+      this.y+=6;
       if(this.y >= 577){
         this.y = 0;
       }
   }
   if(this.direccion === 'h'){
 
-        this.x+=20;
+        this.x+=10;
         if(this.x >= 961){
 
           this.x = 0;
