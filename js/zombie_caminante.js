@@ -41,7 +41,7 @@ ZombieCaminante.prototype.mover = function() {
 ZombieCaminante.prototype.atacar = function(jugador){
 
 
-  jugador.perderVidas(3);
+  jugador.perderVidas(2);
 }
 
 /* El ataque lo toma de su prototipo Enemigo que ya implementa un metodo atacar
