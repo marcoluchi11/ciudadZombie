@@ -23,7 +23,10 @@ var Juego = {
     new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
     new Obstaculo('imagenes/bache.png',80,400,30,30,4),
     new Obstaculo('imagenes/bache.png',280,400,30,30,2),
-    new Obstaculo('imagenes/auto_verde_abajo.png',340,240,15,30,2)
+    new Obstaculo('imagenes/valla_vertical.png',455,70,30,30,1),
+    new Obstaculo('imagenes/auto_verde_abajo.png',241,455,15,30,1),
+    new Obstaculo('imagenes/auto_verde_abajo.png',123,240,15,30,1),
+    new Obstaculo('imagenes/bache.png',780,245,30,30,1),
 
   ],
   /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
@@ -47,13 +50,14 @@ var Juego = {
   ],
   // Los enemigos se agregaran en este arreglo.
   enemigos: [
-                  new ZombieCaminante('imagenes/zombie1.png',123,577,10,10,5,150),
-                  new ZombieCaminante('imagenes/zombie3.png',100,489,10,10,5,150),
-                  new ZombieCaminante('imagenes/zombie2.png',780,443,10,10,5,150),
-                  new ZombieCaminante('imagenes/zombie1.png',940,480,10,10,5,150),
-                  new ZombieCaminante('imagenes/zombie1.png',240,156,10,10,5,150),
+                  new ZombieCaminante('imagenes/zombie1.png',135,500,10,10,2,150),
+                  new ZombieCaminante('imagenes/zombie3.png',450,567,10,10,3,150),
+                  new ZombieCaminante('imagenes/zombie3.png',321,489,10,10,1,150),
+                  new ZombieCaminante('imagenes/zombie2.png',780,443,10,10,4,150),
+                  new ZombieCaminante('imagenes/zombie1.png',940,480,10,10,2,150),
+                  new ZombieCaminante('imagenes/zombie2.png',560,156,10,10,1,150),
                   new ZombieConductor('imagenes/tren_horizontal.png',250,322,90,30,10,15,'h'),
-                  new ZombieConductor('imagenes/tren_vertical.png',644,150,30,90,10,15,'v'),
+                  new ZombieConductor('imagenes/tren_vertical.png',644,455,30,90,10,15,'v'),
                   new ZombieConductor('imagenes/tren_vertical.png',678,0,30,90,10,15,'v'),
   ]
 
