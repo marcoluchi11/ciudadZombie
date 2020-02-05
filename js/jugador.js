@@ -12,11 +12,13 @@
   alto: 30,
   velocidad: 10,
   vidas: 5,
-  mover: function(x,y,spriteNuevo){
+  mover: function(x,y,spriteNuevo,ancho,alto){
           console.log(this.x);
           this.x += x;
           this.y += y;
           this.sprite = spriteNuevo;
+          this.ancho = ancho;
+          this.alto = alto;
     
   },
   perderVidas: function(cantVidas){

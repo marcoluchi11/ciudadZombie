@@ -60,7 +60,6 @@ var Juego = {
                   new ZombieConductor('imagenes/tren_vertical.png',644,455,30,90,10,15,'v'),
                   new ZombieConductor('imagenes/tren_vertical.png',678,0,30,90,10,15,'v'),
   ]
-
 }
 
 /* Se cargan los recursos de las imagenes, para tener un facil acceso
@@ -95,6 +94,8 @@ Juego.iniciarRecursos = function() {
 Juego.obstaculos = function() {
   return this.obstaculosCarretera.concat(this.bordes);
 };
+//Cree esta propiedad para recorrer todos los obstaculos sino me quedaban las veredas con error
+Juego.obstaculosCompletos = Juego.obstaculos();
 
 Juego.comenzar = function() {
   // Inicializar el canvas del juego
@@ -125,31 +126,42 @@ Juego.capturarMovimiento = function(tecla) {
   var movX = 0;
   var movY = 0;
   var spriteNuevo;
+  var nuevoAlto;
+  var nuevoAncho;
   var velocidad = this.jugador.velocidad;
 
   // El movimiento esta determinado por la velocidad del jugador
   if (tecla == 'izq') {
     movX = -velocidad;
     spriteNuevo = 'imagenes/auto_rojo_izquierda.png';
+    nuevoAlto = 15;
+    nuevoAncho = 30;
   }
   if (tecla == 'arriba') {
     movY = -velocidad;
     spriteNuevo = 'imagenes/auto_rojo_arriba.png';
+    nuevoAncho = 15;
+    nuevoAlto = 30;
   }
   if (tecla == 'der') {
     movX = velocidad;
     spriteNuevo = 'imagenes/auto_rojo_derecha.png';
+    nuevoAlto = 15;
+    nuevoAncho = 30;
+    
   }
   if (tecla == 'abajo') {
     movY = velocidad;
     spriteNuevo = 'imagenes/auto_rojo_abajo.png';
+    nuevoAncho = 15;
+    nuevoAlto = 30;
   }
 
   // Si se puede mover hacia esa posicion hay que hacer efectivo este movimiento
   if (this.chequearColisiones(movX + this.jugador.x, movY + this.jugador.y)) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
-      Jugador.mover(movX,movY,spriteNuevo);
+      Jugador.mover(movX,movY,spriteNuevo,nuevoAncho,nuevoAlto);
     /* COMPLETAR */
   }
 };
@@ -161,7 +173,7 @@ Juego.dibujar = function() {
   //Se pinta la imagen de fondo segun el estado del juego
   this.dibujarFondo();
 
-
+  if (this.terminoJuego() || this.ganoJuego()) return;
   /* Aca hay que agregar la logica para poder dibujar al jugador principal
   utilizando al dibujante y los metodos que nos brinda.
   "Dibujante dibuja al jugador" */
@@ -219,17 +231,14 @@ Juego.calcularAtaques = function() {
 };
 
 
-
+//var obstaculosCompletos = Juego.obstaculos();
 /* Aca se chequea si el jugador se peude mover a la posicion destino.
  Es decir, que no haya obstaculos que se interpongan. De ser asi, no podra moverse */
 Juego.chequearColisiones = function(x, y) {
   var puedeMoverse = true
-  
   this.obstaculos().forEach(function(obstaculo) {
-          
     if (this.intersecan(obstaculo, this.jugador, x, y)) {
-      //REVISAR POR QUE FUNCIONA CON EL [0] Y NO SIN NADA O CON OTRA VARIABLE.
-        Juego.obstaculosCarretera[0].chocar(obstaculo);
+        this.obstaculosCompletos[this.obstaculosCompletos.indexOf(obstaculo)].chocar(this.jugador);
       /*COMPLETAR, obstaculo debe chocar al jugador*/
       puedeMoverse = false
     }
