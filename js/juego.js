@@ -1,3 +1,6 @@
+// CAMBIAR SPRITE Y TAMANIO DE JUGADOR
+
+
 /* El objeto Juego sera el encargado del control de todo el resto de los Objetos
 existentes.
 Le dara ordenes al Dibujante para que dibuje entidades en la pantalla. Cargara
@@ -133,35 +136,22 @@ Juego.capturarMovimiento = function(tecla) {
   // El movimiento esta determinado por la velocidad del jugador
   if (tecla == 'izq') {
     movX = -velocidad;
-    spriteNuevo = 'imagenes/auto_rojo_izquierda.png';
-    nuevoAlto = 15;
-    nuevoAncho = 30;
   }
   if (tecla == 'arriba') {
     movY = -velocidad;
-    spriteNuevo = 'imagenes/auto_rojo_arriba.png';
-    nuevoAncho = 15;
-    nuevoAlto = 30;
   }
   if (tecla == 'der') {
     movX = velocidad;
-    spriteNuevo = 'imagenes/auto_rojo_derecha.png';
-    nuevoAlto = 15;
-    nuevoAncho = 30;
-    
   }
   if (tecla == 'abajo') {
     movY = velocidad;
-    spriteNuevo = 'imagenes/auto_rojo_abajo.png';
-    nuevoAncho = 15;
-    nuevoAlto = 30;
   }
 
   // Si se puede mover hacia esa posicion hay que hacer efectivo este movimiento
   if (this.chequearColisiones(movX + this.jugador.x, movY + this.jugador.y)) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
-      Jugador.mover(movX,movY,spriteNuevo,nuevoAncho,nuevoAlto);
+      Jugador.mover(movX,movY,tecla);
     /* COMPLETAR */
   }
 };
@@ -238,7 +228,7 @@ Juego.chequearColisiones = function(x, y) {
   var puedeMoverse = true
   this.obstaculos().forEach(function(obstaculo) {
     if (this.intersecan(obstaculo, this.jugador, x, y)) {
-        this.obstaculosCompletos[this.obstaculosCompletos.indexOf(obstaculo)].chocar(this.jugador);
+        obstaculo.chocar(this.jugador);
       /*COMPLETAR, obstaculo debe chocar al jugador*/
       puedeMoverse = false
     }
