@@ -1,7 +1,7 @@
 /* El objeto jugador es un objeto literal que se encuentra incompleto.
  Solo tiene asignadas algunas de sus propiedades y ningun metodo */
 
-
+//  var teclaFarias = Juego.capturarMovimiento(tecla);
  var Jugador = {
   /* el sprite contiene la ruta de la imagen
   */
@@ -12,14 +12,33 @@
   alto: 30,
   velocidad: 10,
   vidas: 5,
-  mover: function(x,y,spriteNuevo,ancho,alto){
-          console.log(this.x);
+  mover: function(x,y,tecla){
+    
+    if (tecla == 'izq') {
+    
+    this.sprite = 'imagenes/auto_rojo_izquierda.png';
+    this.alto = 15;
+    this.ancho = 30;
+  }
+  if (tecla == 'arriba') {
+    this.sprite = 'imagenes/auto_rojo_arriba.png';
+    this.ancho = 15;
+    this.alto = 30;
+  }
+  if (tecla == 'der') {
+    this.sprite = 'imagenes/auto_rojo_derecha.png';
+    this.alto = 15;
+    this.ancho = 30;
+    
+  }
+  if (tecla == 'abajo') {
+    this.sprite = 'imagenes/auto_rojo_abajo.png';
+    this.ancho = 15;
+    this.alto = 30;
+  }
           this.x += x;
           this.y += y;
-          this.sprite = spriteNuevo;
-          this.ancho = ancho;
-          this.alto = alto;
-    
+  
   },
   perderVidas: function(cantVidas){
     this.vidas -= cantVidas;
